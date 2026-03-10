@@ -6,7 +6,10 @@ langchain==0.1.10
 redis
 qdrant_client==1.7.1
 uvicorn==0.23.2
-python-dotenv==1.2.2
 dashscope==1.25.13
 requests==2.31.0
 certifi==2024.2.2
+python-dotenv==1.2.2
+pydantic-settings==2.1.0
+pydantic==2.5.0
+pytest==7.4.0
