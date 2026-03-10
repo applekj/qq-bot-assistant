@@ -157,7 +157,7 @@ class MasterService:
             dashscope.base_websocket_api_url = 'wss://dashscope.aliyuncs.com/api-ws/v1/inference'
 
             print(dashscope.api_key,dashscope.base_websocket_api_url)
-            synthesizer = SpeechSynthesizer(model="cosyvoice-v3-flash", voice="longlaobo_v3")
+            synthesizer = SpeechSynthesizer(model="cosyvoice-v2", voice="longlaobo")
             audio = synthesizer.call(text)
 
             if audio is None:
