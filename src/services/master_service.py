@@ -144,7 +144,7 @@ class MasterService:
         return chat_message_history
     
     def background_voice_synthesis(self, text, uid):
-        asyncio.run(self.get_voice(text, uid))
+       asyncio.run(self.get_voice(text, uid))
 
     async def get_voice(self, text, uid):
         try:

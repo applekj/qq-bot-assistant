@@ -13,3 +13,4 @@ def chat(query: str, background_tasks: BackgroundTasks):
     uni_uid = str(uuid.uuid4())
     background_tasks.add_task(master.background_voice_synthesis, msg["output"], uni_uid)
     return {"msg": msg, "uid": uni_uid}
+    # return {"msg": msg}

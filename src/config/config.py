@@ -28,6 +28,11 @@ class Settings(BaseSettings):
     # 音频配置
     audio_output_dir: str = "audio_output"
     
+    # QQ 机器人配置
+    qq_bot_token: str = ""
+    qq_bot_appid: str = ""
+    qq_bot_appsecret: str = ""
+    
     class Config:
         env_file = ".env"
         case_sensitive = False

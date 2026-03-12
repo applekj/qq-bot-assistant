@@ -10,6 +10,7 @@
 - 本地知识库查询
 - 实时搜索功能
 - 语音合成功能
+- QQ 机器人集成，支持群聊和私聊
 
 ## 项目结构
 
@@ -28,6 +29,7 @@ AI-Agent-practise/
 ├── Docker-compose.yml # Docker Compose 配置
 ├── requirements.txt   # 依赖管理
 ├── server.py          # 应用入口
+├── qq_bot.py          # QQ 机器人实现
 └── README.md          # 项目文档
 ```
 
@@ -66,6 +68,10 @@ AI-Agent-practise/
    # 数据库配置
    REDIS_URL=
    REDIS_URL_LOCAL=redis://localhost:6379/0
+
+   # QQ 机器人配置
+   QQ_BOT_APPID=your_qq_bot_appid
+   QQ_BOT_APPSECRET=your_qq_bot_appsecret
    ```
 
 4. 启动 Redis
@@ -75,17 +81,25 @@ AI-Agent-practise/
 
 5. 运行应用
    ```bash
+   # 启动 AI 服务器
    ./scripts/start.sh
+   
+   # 运行 QQ 机器人（在另一个终端）
+   python qq_bot.py
    ```
 
 ### Docker 运行
 
 1. 配置环境变量
-   创建 `.env` 文件，填写相关配置
+   创建 `.env` 文件，填写相关配置，包括 QQ 机器人配置
 
 2. 启动服务
    ```bash
+   # 启动所有服务（ai-server、redis-server、qq-bot）
    docker-compose up --build
+   
+   # 仅启动 QQ 机器人服务
+   docker-compose up --build qq-bot
    ```
 
 ## API 接口
@@ -115,6 +129,7 @@ AI-Agent-practise/
 4. **本地知识库**: 使用 Qdrant 向量数据库存储和查询本地文档
 5. **实时搜索**: 使用 SerpAPI 进行实时信息搜索
 6. **语音合成**: 使用 DashScope 进行语音合成
+7. **QQ 机器人**: 集成 QQ 官方 botpy 库，支持群聊@消息和私聊消息处理
 
 ## 技术栈
 
@@ -124,6 +139,7 @@ AI-Agent-practise/
 - Qdrant: 向量数据库
 - Redis: 缓存和会话管理
 - DashScope: 语音合成
+- botpy: QQ 机器人官方 SDK
 - Docker: 容器化部署
 
 ## 测试

@@ -13,12 +13,26 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - SERVICE_TYPE=ai-server
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - OPENAI_API_BASE=${OPENAI_API_BASE}
       - SERPAPI_API_KEY=${SERPAPI_API_KEY}
       - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
       - YUANFENJU_API_KEY=${YUANFENJU_API_KEY}
       - REDIS_URL=redis://:1234567@redis-server:6379
+
+  qq-bot:
+    build: ./
+    environment:
+      - SERVICE_TYPE=qq-bot
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_API_BASE=${OPENAI_API_BASE}
+      - SERPAPI_API_KEY=${SERPAPI_API_KEY}
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - YUANFENJU_API_KEY=${YUANFENJU_API_KEY}
+      - REDIS_URL=redis://:1234567@redis-server:6379
+      - QQ_BOT_APPID=${QQ_BOT_APPID}
+      - QQ_BOT_APPSECRET=${QQ_BOT_APPSECRET}
 
 volumes:
   redis_data:
