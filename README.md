@@ -15,7 +15,7 @@
 ## 项目结构
 
 ```
-AI-Agent-practise/
+qq-bot-assistant/
 ├── src/
 │   ├── api/           # API 路由
 │   ├── config/        # 配置管理
